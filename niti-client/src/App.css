@@ -1,0 +1,34 @@
+@import "~normalize.css";
+
+.App {
+  box-sizing: border-box;
+  text-align: center;
+  display: flex;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+}
+
+.logo {
+  color: white;
+}
+
+.sidebar {
+  width: 260px;
+  padding: 10px;
+  background-color: #317b7d;
+  color: white;
+}
+
+.chatbox {
+  flex: 1;
+  background-color: #eaecef;
+}
+
+.sidebar-button {
+  padding: 15px;
+  border: 1px solid white;
+  border-radius: 5px;
+}
