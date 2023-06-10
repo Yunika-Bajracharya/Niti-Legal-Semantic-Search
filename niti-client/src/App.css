@@ -1,7 +1,4 @@
-@import "~normalize.css";
-
 .App {
-  box-sizing: border-box;
   text-align: center;
   display: flex;
   position: absolute;
@@ -25,10 +22,40 @@
 .chatbox {
   flex: 1;
   background-color: #eaecef;
+  position: relative;
 }
 
 .sidebar-button {
-  padding: 15px;
+  padding: 10px;
   border: 1px solid white;
   border-radius: 5px;
+  text-align: left;
+  transition: ease 0.25s all;
+}
+
+.sidebar-button:hover {
+  background-color: #438285;
+}
+
+.sidebar-button span {
+  padding: 0 12px 0 6px;
+}
+
+.chat-inputbox {
+  padding: 26px;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.chat-input-textarea {
+  width: 90%;
+  border-radius: 5px;
+  border: none;
+  padding: 12px;
+  margin: 12px;
+  outline: none;
+  font-size: 1.2em;
+  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.25);
 }
