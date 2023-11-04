@@ -1,0 +1,43 @@
+.chat-inputbox {
+    padding: 26px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+  }
+  
+  .form-inputbox {
+    display: flex;
+    width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  
+  .input-textarea {
+    flex: 95%;
+    border-radius: 8px;
+    border: none;
+    padding: 20px;
+    padding-right: 55px;
+    margin: 12px;
+    outline: none;
+    font-size: 1.2em;
+    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.25);
+  }
+  
+  input[type="submit"] {
+    flex: 5%;
+    font-family: FontAwesome;
+    border: none;
+    margin-left: -85px;
+    background: none;
+    font-size: larger;
+    color: #317b7d;
+  
+    cursor: pointer;
+  }
+  
+  input[type="submit"]:hover {
+    color: rgb(75, 129, 118);
+    font-size: x-large;
+  }

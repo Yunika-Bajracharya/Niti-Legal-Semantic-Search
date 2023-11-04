@@ -12,6 +12,6 @@ class Message(BaseModel):
 
 class Chat(BaseModel):
     token: str
-    messages: List[Message]
     name: str
+    messages: List[Message]
     session_start = str(datetime.now())
