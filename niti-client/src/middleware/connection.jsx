@@ -1,7 +1,5 @@
 import axios from "axios";
 
 export const connection = axios.create({
-    baseURL:"http://localhost:3500"
-})
-
-
+  baseURL: "http://localhost:3500",
+});

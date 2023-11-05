@@ -1,0 +1,52 @@
+body {
+  background-image: linear-gradient(to right, #329d9c, #56c596);
+}
+
+.home_logo {
+  display: block;
+  width: 250px;
+  height: 250px;
+  margin: auto;
+  margin-top: 130px;
+}
+
+.home_form {
+  text-align: center;
+  align-self: center;
+  margin-top: 30px;
+}
+
+.home_textbox {
+  border: 1px solid gray;
+  text-align: center;
+  width: 300px;
+  height: 40px;
+  border-top-right-radius: 3px;
+  border-top-left-radius: 3px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  color: #205072;
+  font-weight: bold;
+  margin-bottom: 10px;
+  background-color: rgb(229, 240, 233);
+}
+
+.home_submit {
+  border: 1px solid gray;
+  text-align: center;
+  margin: 0 auto;
+  width: 130px;
+  height: 40px;
+  background-color: #cff4d2;
+  color: #205072;
+  border-top-right-radius: 5px;
+  border-top-left-radius: 5px;
+  border-bottom-right-radius: 350px;
+  border-bottom-left-radius: 350px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.home_submit:hover {
+  background-color: #7be495;
+}
