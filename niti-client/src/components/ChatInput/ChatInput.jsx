@@ -1,11 +1,13 @@
 import React, { useContext, useState, useEffect, useRef } from "react";
 import SessionContext from "../../context/session";
 import { v4 as uuid4 } from "uuid";
-import "./ChatInput.css"
+import "./ChatInput.css";
 
 const ChatInput = (props) => {
   const [chatInput, setChatInput] = useState("");
-  const { messages, setMessages, token, setSocketState } = useContext(SessionContext);
+  const { messages, setMessages, token, setSocketState } = useContext(
+    SessionContext
+  );
   const [isPaused, setPause] = useState(false);
 
   const handleChange = (event) => {
@@ -30,16 +32,16 @@ const ChatInput = (props) => {
     if (!ws.current) return;
 
     ws.current.onmessage = (event) => {
-        if (isPaused) return;
-        try {
-          const validJsonString = event.data.replace(/'/g, '"');
-          const message = JSON.parse(validJsonString);
-          setMessages(messages.concat(message));
-          console.log(messages)
-        } catch (error) {
-          console.error("Error parsing JSON:", error);
-          console.log(event.data)
-        }
+      if (isPaused) return;
+      try {
+        const validJsonString = event.data.replace(/'/g, '"');
+        const message = JSON.parse(validJsonString);
+        setMessages(messages.concat(message));
+        console.log(messages);
+      } catch (error) {
+        console.error("Error parsing JSON:", error);
+        console.log(event.data);
+      }
     };
   }, [isPaused]);
 
@@ -52,7 +54,7 @@ const ChatInput = (props) => {
         msg: `Human: ${chatInput}`,
         timestamp: new Date().toLocaleString(),
       };
-      console.log(chat)
+      console.log(chat);
       setMessages(messages.concat(chat));
       // console.log(ws.current)
       // console.log(chatInput)
@@ -63,20 +65,19 @@ const ChatInput = (props) => {
 
   return (
     <div className="chat-inputbox">
-        <form onSubmit={updateMessages} className="form-inputbox">
+      <form onSubmit={updateMessages} className="form-inputbox">
         <input
-            rows="1"
-            value={chatInput}
-            onChange={handleChange}
-            className="input-textarea"
-            type="text"
-            placeholder="Type your queries here"
-            required="required"
+          rows="1"
+          value={chatInput}
+          onChange={handleChange}
+          className="input-textarea"
+          type="text"
+          placeholder="Type your queries here"
+          required="required"
         ></input>
         <input type="submit" value="&#xf1d8;" />
-        </form>
+      </form>
     </div>
-    
   );
 };
 
