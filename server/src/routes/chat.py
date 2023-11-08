@@ -10,6 +10,7 @@ from rejson import Path
 from ..redis.stream import StreamConsumer
 from ..redis.cache import Cache
 import time
+import asyncio
 
 chat = APIRouter() 
 manager = ConnectionManager()
@@ -86,6 +87,7 @@ async def websocket_endpoint(websocket: WebSocket, token: str = Depends(get_toke
             stream_data = {}
             stream_data[str(token)] = str(data)
             await producer.add_to_stream(stream_data, "message_channel")
+            await asyncio.sleep(2)
             response = await consumer.consume_stream(stream_channel="response_channel", block=0)
 
             print(response)

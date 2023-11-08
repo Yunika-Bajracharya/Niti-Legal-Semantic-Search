@@ -8,7 +8,6 @@ const ChatInput = (props) => {
   const { messages, setMessages, token, setSocketState } = useContext(
     SessionContext
   );
-  const [isPaused, setPause] = useState(false);
 
   const handleChange = (event) => {
     setChatInput(event.target.value);
@@ -31,8 +30,7 @@ const ChatInput = (props) => {
   useEffect(() => {
     if (!ws.current) return;
 
-    ws.current.onmessage = (event) => {
-      if (isPaused) return;
+    ws.current.onmessage = async (event) => {
       try {
         const validJsonString = event.data.replace(/'/g, '"');
         const message = JSON.parse(validJsonString);
@@ -43,11 +41,10 @@ const ChatInput = (props) => {
         console.log(event.data);
       }
     };
-  }, [isPaused]);
+  }, [messages]);
 
   const updateMessages = async (event) => {
     event.preventDefault();
-    setPause(!isPaused);
     if (chatInput.length > 0) {
       const chat = {
         id: uuid4(),
@@ -58,7 +55,7 @@ const ChatInput = (props) => {
       setMessages(messages.concat(chat));
       // console.log(ws.current)
       // console.log(chatInput)
-      ws.current.send(chatInput);
+      await ws.current.send(chatInput);
       setChatInput("");
     }
   };
