@@ -10,7 +10,7 @@ load_dotenv()
 
 class Model:
     def __init__(self):
-        self.loaded_index = faiss.read_index('/home/yunika/Desktop/Niti/Niti-Legal-Chatbot/worker/src/model/index.faiss')
+        self.loaded_index = faiss.read_index('./src/model/index.faiss')
         self.q_encoder = DPRQuestionEncoder.from_pretrained("facebook/dpr-question_encoder-multiset-base")
         self.q_tokenizer = DPRQuestionEncoderTokenizerFast.from_pretrained("facebook/dpr-question_encoder-multiset-base")
 
@@ -32,7 +32,7 @@ class Model:
         print('Closed matching indices: ', I)
         print('Inner Products: ', D)
 
-        with open('/home/yunika/Desktop/Niti/Niti-Legal-Chatbot/worker/src/model/corpus.json', 'r') as json_file:
+        with open('./src/model/corpus.json', 'r') as json_file:
             corpus = json.load(json_file)
 
         # wrap text to 80 characters
@@ -41,20 +41,25 @@ class Model:
         # for each of the top 'k' result
                     
         res = ""
+        j = 0
         
         for i in I[0]:
 
-            title = corpus['title'][i]
+            title = ''.join([i for i in corpus['title'][i] if not i.isdigit()]) + '\nThe National Civil (Code) Act, 2017 (2074)\n'
             passage = corpus['text'][i]
 
-            print('Index: ', i)
-            print('Article title: ', title, '\n')
-            print('Passage: ')
-            print(wrapper.fill(passage))
-            print('')
+            # print('Index: ', i)
+            # print('Article title: ', title, '\n')
+            # print('Passage: ')
+            # print(wrapper.fill(passage))
+            # print('')
             
             res += title
-            res += passage
+            res += passage + '\n'
+            res += 'Inner Product: ' + str(D[0][j]) + '\n\n'
+
+            print("product", D[0][j])
+            j += 1
             
         print("here", res)
         return res

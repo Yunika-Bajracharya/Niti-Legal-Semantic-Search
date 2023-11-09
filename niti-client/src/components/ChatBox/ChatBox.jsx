@@ -37,7 +37,9 @@ const ChatBox = () => {
             {isHuman ? (
               <div className="message">{message.msg.slice(6)}</div>
             ) : (
-              <div className="message">{message.msg}</div>
+              <div className="message" id="p_wrap">
+                {message.msg}
+              </div>
             )}
             {/* <div>{moment(message.timestamp, "YYYYMMDD").fromNow()}</div> */}
           </div>

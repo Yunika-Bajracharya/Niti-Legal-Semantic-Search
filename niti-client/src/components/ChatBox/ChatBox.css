@@ -148,3 +148,7 @@ input[type="submit"]:hover {
   border: none;
   border-radius: 20px;
 }
+
+#p_wrap {
+  white-space: pre-line;
+}
