@@ -12,6 +12,7 @@ class Model:
     def __init__(self):
         self.loaded_index = faiss.read_index('./src/model/index.faiss')
         self.q_encoder = DPRQuestionEncoder.from_pretrained("facebook/dpr-question_encoder-multiset-base")
+        self.q_encoder.eval()
         self.q_tokenizer = DPRQuestionEncoderTokenizerFast.from_pretrained("facebook/dpr-question_encoder-multiset-base")
 
     def query(self, message: str):
@@ -45,8 +46,8 @@ class Model:
         
         for i in I[0]:
 
-            title = ''.join([i for i in corpus['title'][i] if not i.isdigit()]) + '\nThe National Civil (Code) Act, 2017 (2074)\n'
-            passage = corpus['text'][i]
+            title = ''.join([i for i in corpus['title'][i] if not i.isdigit()])
+            passage = corpus['text'][i].replace("'", "`").replace('"', '`')
 
             # print('Index: ', i)
             # print('Article title: ', title, '\n')
@@ -54,7 +55,7 @@ class Model:
             # print(wrapper.fill(passage))
             # print('')
             
-            res += title
+            res += title + '\n'
             res += passage + '\n'
             res += 'Inner Product: ' + str(D[0][j]) + '\n\n'
 

@@ -15,6 +15,10 @@ const Home = () => {
   const navigate = useNavigate();
   console.log(name);
 
+  const setGuestName = () => {
+    setName("Guest");
+  };
+
   const handleInput = (event) => {
     setName(event.target.value);
   };
@@ -74,7 +78,9 @@ const Home = () => {
               className="home_textbox"
             ></input>
             <br></br>
-
+            <button onClick={setGuestName} className="guest home_textbox">
+              Enter as Guest
+            </button>
             <button type="submit" className="home_submit">
               Start Chat
             </button>

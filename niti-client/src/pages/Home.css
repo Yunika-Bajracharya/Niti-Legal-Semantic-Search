@@ -35,6 +35,7 @@ body {
   border: 1px solid gray;
   text-align: center;
   margin: 0 auto;
+  margin-top: 20px;
   width: 130px;
   height: 40px;
   background-color: #cff4d2;
@@ -49,4 +50,11 @@ body {
 
 .home_submit:hover {
   background-color: #7be495;
+}
+
+.guest {
+  display: block;
+  /* align-items: center; */
+  margin: auto;
+  margin-top: 5px;
 }

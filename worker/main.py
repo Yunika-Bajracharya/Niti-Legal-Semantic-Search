@@ -19,6 +19,7 @@ async def main():
 
     print("Stream consumer started")
     print("Stream waiting for new messages")
+    m = Model()
 
     while True:
         response = await consumer.consume_stream(stream_channel="message_channel", count=1, block=0)
@@ -40,8 +41,8 @@ async def main():
 
                         await cache.add_message_to_cache(token=token, source="human", message_data=msg.dict())
                         
-                        res = Model().query(message = message) 
-                            # # Get chat history from cache
+                        res = m.query(message = message) 
+                        # # Get chat history from cache
                         # data = await cache.get_chat_history(token=token)
                         # print("Data:",data)
                         # # Clean message input and send to query
