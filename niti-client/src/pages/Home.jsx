@@ -5,7 +5,8 @@ import SessionContext from "../context/session";
 import logo from "../assets/large-logo.png";
 import loader from "../assets/loader.svg";
 import "./Home.css";
-
+import {useTypewriter, Cursor} from 'react-simple-typewriter';
+ 
 const Home = () => {
   const { setToken, name, setName, setSessionStart } = useContext(
     SessionContext
@@ -18,7 +19,7 @@ const Home = () => {
   const setGuestName = () => {
     setName("Guest");
   };
-
+  
   const handleInput = (event) => {
     setName(event.target.value);
   };
@@ -32,15 +33,27 @@ const Home = () => {
       const token = data.token ? data.token : undefined;
       const sessionStart = data.session_start;
       setToken(token);
-      setName(data.name);
+      setName(data.name || "Guest");
       setSessionStart(sessionStart);
-      setLoading(false);
-      navigate(`chat/${token}`);
+
+      //Delay for typewriting effect
+      setTimeout(() => {
+        setLoading(false);
+        navigate('chat/${token}');
+      },3500)//duration
     } catch (error) {
       setLoading(false);
       console.log(error);
     }
   };
+
+  //     setLoading(false);
+  //     navigate(`chat/${token}`);
+  //   } catch (error) {
+  //     setLoading(false);
+  //     console.log(error);
+  //   }
+  // };
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -50,7 +63,13 @@ const Home = () => {
       setError("Error! Provide Required Credentials");
     }
   };
-
+  const [text] = useTypewriter({
+    words: ['दैवले जानुन', 'सबैले जानुन |'],
+    // loop: {},
+    delaySpeed: 50,
+    typeSpeed:200,
+    deleteSpeed:50,
+  });
   return (
     <div>
       {loading ? (
@@ -63,7 +82,17 @@ const Home = () => {
             height: "137px",
           }}
         >
-          <div> Loading Session</div>
+          <div> 
+            <h1 style = {{ margin: '50px' }}>
+              नेपालको कानुन {' '}
+              <span style ={{fontWeight: 'bold', color: '#205072'}}>
+                {text}
+              </span>
+              <span style={{color:'red'}}>
+                <Cursor cursorStyle='|'/>
+              </span>
+            </h1>
+          </div>
           <img src={loader} alt="UI loading" />
         </div>
       ) : (
@@ -92,3 +121,4 @@ const Home = () => {
 };
 
 export default Home;
+
