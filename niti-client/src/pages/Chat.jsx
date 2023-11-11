@@ -74,17 +74,6 @@ const Chat = () => {
 }
 
 
-const ChatMessage = ({ message }) => {
-    return (
-      <div className="chat-query">
-        <div className="avatar">
-          <img src={require("../assets/user.png")} alt="logo" />
-        </div>
-        <div className="message">{message.message}</div>
-      </div>
-    );
-  };
-
 export default Chat
 
 

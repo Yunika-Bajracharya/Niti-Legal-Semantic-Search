@@ -33,13 +33,13 @@ const Home = () => {
       const token = data.token ? data.token : undefined;
       const sessionStart = data.session_start;
       setToken(token);
-      setName(data.name || "Guest");
+      setName(data.name);
       setSessionStart(sessionStart);
 
       //Delay for typewriting effect
       setTimeout(() => {
         setLoading(false);
-        navigate('chat/${token}');
+        navigate(`chat/${token}`);
       },3500)//duration
     } catch (error) {
       setLoading(false);
