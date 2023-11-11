@@ -26,13 +26,7 @@ const Chat = () => {
       timestamp: "",
     });
     const { token_id } = useParams();
-    const [input, setInput] = useState("");
-    const [chatLog, setChatLog] = useState([
-      // {
-      //   user: "me",
-      //   message: "Can you tell me more?",
-      // },
-    ]);
+  
 
   
   
@@ -40,7 +34,7 @@ const Chat = () => {
       const REFRESH_SESSION = async () => {
         setLoading(true);
         try {
-          const response = await connection.post(`/refresh_token?name=${name}`);
+          const response = await connection.get(`/refresh_token?token=${token_id}`);
           const data = response.data? response.data : undefined; 
           console.log(data)
           const token = data.token ? data.token : undefined; 
@@ -48,6 +42,7 @@ const Chat = () => {
           setToken(token);
           setName(data.name); 
           setSessionStart(sessionStart);
+          setMessages(data.messages)
           setLoading(false);
         } catch (error) {
           setLoading(false);
@@ -56,15 +51,8 @@ const Chat = () => {
       };
   
       REFRESH_SESSION();
-      // eslint-disable-next-line react-hooks/exhaustive-deps
     }, [token_id]);
 
-    async function handleSubmit(e) {
-        e.preventDefault();
-        console.log("submit");
-        setChatLog([...chatLog, { user: "me", message: `${input}` }]);
-        setInput("");
-      }
 
   return (
     <div className="Chat">
@@ -84,16 +72,5 @@ const Chat = () => {
     </div>
   )
 }
-
-const ChatMessage = ({ message }) => {
-    return (
-      <div className="chat-query">
-        <div className="avatar">
-          <img src={require("../assets/user.png")} alt="logo" />
-        </div>
-        <div className="message">{message.message}</div>
-      </div>
-    );
-  };
 
 export default Chat

@@ -21,8 +21,9 @@ const ChatInput = (props) => {
       ws.current.onopen = () => setSocketState("active");
       ws.current.onclose = () => setSocketState("");
 
+      const wsCurrent = ws.current;
       return () => {
-        ws.current.close();
+        wsCurrent.close();
       };
     }
   }, []);
