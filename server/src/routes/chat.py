@@ -87,7 +87,7 @@ async def websocket_endpoint(websocket: WebSocket, token: str = Depends(get_toke
             stream_data = {}
             stream_data[str(token)] = str(data)
             await producer.add_to_stream(stream_data, "message_channel")
-            await asyncio.sleep(5)
+            await asyncio.sleep(4)
             response = await consumer.consume_stream(stream_channel="response_channel", block=0)
 
             print(response)
