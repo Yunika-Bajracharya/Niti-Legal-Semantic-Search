@@ -19,6 +19,7 @@ const Chat = () => {
       setMessages,
     } = useContext(SessionContext);
     const [loading, setLoading] = useState(false);
+    
     const [error, setError] = useState("");
     const [chat, setChat] = useState({
       id: "",
@@ -65,13 +66,12 @@ const Chat = () => {
 
       <section className="chatbox">
         <ChatBox/>
- 
-        
+
         <ChatInput chat={chat} setChat={setChat}/>
       </section>
     </div>
-  )
-}
+  );
+};
 
 
 export default Chat

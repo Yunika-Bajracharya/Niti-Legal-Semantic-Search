@@ -1,10 +1,15 @@
-import React, { Fragment, useContext, useEffect, useRef } from "react";
+import React, { Fragment, useContext, useEffect, useRef, useState } from "react";
 import SessionContext from "../../context/session";
 import moment from "moment";
 import "./ChatBox.css";
+import Lottie from 'lottie-react';
+import animationData from '../../assets/TypingIndicator.json';
+
 const ChatBox = () => {
   const messageElement = useRef(null);
-  const { messages, socketState } = useContext(SessionContext);
+  const { messages } = useContext(SessionContext);
+
+  const [showTypingAnimation, setShowTypingAnimation] = useState(false);
 
   useEffect(() => {
     // Scroll to the bottom of the chat log when new messages arrive
@@ -13,35 +18,52 @@ const ChatBox = () => {
     }
   }, [messages]);
 
-  console.log(messages);
+  useEffect(() => {
+    //To start animation immediately
+    const latestHumanMessageIndex = messages.findIndex(message => message.msg.startsWith("Human:"));
+    
+    if (latestHumanMessageIndex !== -1) {
+      setShowTypingAnimation(true);
+
+      const timer = setTimeout(() => {
+        setShowTypingAnimation(false);
+      }, 4000);
+      return () => clearTimeout(timer);
+    }
+  }, [messages]);
 
   return (
     <div className="chat-log" ref={messageElement}>
       {messages.map((message, index) => {
-        const isHuman = message.msg.substring(0, 5) === "Human";
+        const isHuman = message.msg.startsWith("Human:");
 
         return (
           <div
             className={isHuman ? "chat-query" : "chat-answer"}
             key={message.id}
           >
-            {isHuman ? (
-              <div className="avatar">
+            <div className="avatar">
+              {isHuman ? (
                 <img src={require("../../assets/user.png")} alt="user" />
-              </div>
-            ) : (
-              <div className="avatar">
+              ) : (
                 <img src={require("../../assets/logo.png")} alt="logo" />
-              </div>
-            )}
-            {isHuman ? (
-              <div className="message">{message.msg.slice(6)}</div>
-            ) : (
-              <div className="message" id="p_wrap">
-                {message.msg}
-              </div>
-            )}
-            {/* <div>{moment(message.timestamp, "YYYYMMDD").fromNow()}</div> */}
+              )}
+            </div>
+            <div className="message" id="p_wrap">
+              {isHuman ? (
+                <div>{message.msg.slice(6)}</div>
+              ) : (
+                <Fragment>
+                  {showTypingAnimation && index === messages.length - 1 ? (
+                    <div style ={{ width: 150, height: 150, overflow: "hidden", position:"relative",display: "flex", alignItems: "center", justifyContent: "center"}}>
+                      <Lottie animationData={animationData} style={{ width: 140, height: 140}} />
+                    </div>
+                  ) : (
+                    <div>{message.msg}</div>
+                  )}
+                </Fragment>
+              )}
+            </div>
           </div>
         );
       })}
