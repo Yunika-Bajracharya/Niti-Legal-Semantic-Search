@@ -55,8 +55,8 @@ const ChatBox = () => {
               ) : (
                 <Fragment>
                   {showTypingAnimation && index === messages.length - 1 ? (
-                    <div style ={{ width: 150, height: 150, overflow: "hidden", position:"relative",display: "flex", alignItems: "center", justifyContent: "center"}}>
-                      <Lottie animationData={animationData} style={{ width: 140, height: 140}} />
+                    <div style ={{ width: 50, height: 50, overflow: "hidden", position:"relative",display: "flex", alignItems: "center", justifyContent: "center"}}>
+                      <Lottie animationData={animationData} style={{ width: 200, height: 200}} />
                     </div>
                   ) : (
                     <div>{message.msg}</div>
