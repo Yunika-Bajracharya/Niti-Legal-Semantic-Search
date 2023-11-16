@@ -1,9 +1,15 @@
-import React, { Fragment, useContext, useEffect, useRef, useState } from "react";
+import React, {
+  Fragment,
+  useContext,
+  useEffect,
+  useRef,
+  useState,
+} from "react";
 import SessionContext from "../../context/session";
 import moment from "moment";
 import "./ChatBox.css";
-import Lottie from 'lottie-react';
-import animationData from '../../assets/TypingIndicator.json';
+import Lottie from "lottie-react";
+import animationData from "../../assets/TypingIndicator.json";
 
 const ChatBox = () => {
   const messageElement = useRef(null);
@@ -20,8 +26,10 @@ const ChatBox = () => {
 
   useEffect(() => {
     //To start animation immediately
-    const latestHumanMessageIndex = messages.findIndex(message => message.msg.startsWith("Human:"));
-    
+    const latestHumanMessageIndex = messages.findIndex((message) =>
+      message.msg.startsWith("Human:")
+    );
+
     if (latestHumanMessageIndex !== -1) {
       setShowTypingAnimation(true);
 
@@ -55,11 +63,24 @@ const ChatBox = () => {
               ) : (
                 <Fragment>
                   {showTypingAnimation && index === messages.length - 1 ? (
-                    <div style ={{ width: 50, height: 50, overflow: "hidden", position:"relative",display: "flex", alignItems: "center", justifyContent: "center"}}>
-                      <Lottie animationData={animationData} style={{ width: 200, height: 200}} />
+                    <div
+                      style={{
+                        width: 50,
+                        height: 50,
+                        overflow: "hidden",
+                        position: "relative",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <Lottie
+                        animationData={animationData}
+                        style={{ width: 200, height: 200 }}
+                      />
                     </div>
                   ) : (
-                    <div>{message.msg}</div>
+                    <div>{message.msg.slice(4)}</div>
                   )}
                 </Fragment>
               )}

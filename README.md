@@ -8,16 +8,17 @@ One can ask legal queries, our system will search for your answers through the l
 
 For the initial phase, we have included the following legal documents:
 
-1. [The National Civil (Code) Act, 2017 (2074)] (https://www.moljpa.gov.np/en/wp-content/uploads/2018/12/Civil-code.pdf)
-2. Constitution of Nepal
-3. Another one suggested by Sawarni
+1. [Constitution of Nepal](https://lawcommission.gov.np/en/wp-content/uploads/2021/01/Constitution-of-Nepal.pdf)
+2. [The National Civil (Code) Act, 2017 (2074)](https://www.moljpa.gov.np/en/wp-content/uploads/2018/12/Civil-code.pdf)
+3. [The National Civil Procedure (Code) Act, 2017](https://www.moljpa.gov.np/en/wp-content/uploads/2018/12/Civil-procedure-code.pdf)
 
-Getting Started
-To get started with Niti, follow these steps:
+### Getting Started
 
-Clone the repository: git clone https://github.com/your-username/niti.git
-Install dependencies: npm install
-Run the application: npm start
+- Clone the repository: `git clone https://github.com/your-username/niti.git`
+- Navigate to the niti-client folder: `cd niti-client`
+- Install dependencies: `npm install`
+- Run the application: `npm start`
 
-Feedback and Support
-For feedback, issues, or support, please open an issue.
+### Feedback and Support
+
+_For feedback, issues, or support, please open an issue._

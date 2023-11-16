@@ -16,6 +16,19 @@ class Model:
         self.q_tokenizer = DPRQuestionEncoderTokenizerFast.from_pretrained("facebook/dpr-question_encoder-multiset-base")
 
     def query(self, message: str):
+        
+        # check for hard-coded replies
+        self.responses = {
+            "hello, i need some assistance. can you help me?": "Bot: Hi there! I am Niti. I`m here to help you with your legal queries. What can I help you with today?",
+            "hello": "Bot: Hi there! I am Niti. I`m here to help you with your legal queries. What can I help you with today?",
+            "hi": "Bot: Hi there! I am Niti. I`m here to help you with your legal queries. What can I help you with today?",
+            "thank you": "Bot: You`re welcome!",
+            "what do you do?": "Bot: I`m here to help you with your legal queries. I search for your answers through the legal documents. What can I help you with today?",
+            "bye": "Bot: Goodbye! If you ever need any help in the future, feel free to reach out."
+        }
+        if message.lower() in self.responses:
+            return self.responses[message.lower()]
+
         # tokenized the question
         input_ids = self.q_tokenizer.encode(message, return_tensors="pt")
         
@@ -46,8 +59,9 @@ class Model:
         
         for i in I[0]:
 
-            title = ''.join([i for i in corpus['title'][i] if not i.isdigit()])
-            passage = corpus['text'][i].replace("'", "`").replace('"', '`')
+            title = corpus['title'][i].split("~")[0] + "\n" + corpus['title'][i].split("~")[1]
+            
+            passage = corpus['text'][i].replace("'", "`").replace('"', '`').replace("_x0002_", "-")
 
             # print('Index: ', i)
             # print('Article title: ', title, '\n')
@@ -55,13 +69,13 @@ class Model:
             # print(wrapper.fill(passage))
             # print('')
             
-            res += title + '\n'
-            res += passage + '\n'
-            res += 'Inner Product: ' + str(D[0][j]) + '\n\n'
+            res += title + "\n\n" 
+            res += passage + "\n"
+            res += '• Inner Product: ' + str(D[0][j]) + '\n' + "_" * 70 + '\n\n' 
 
             print("product", D[0][j])
             j += 1
             
         print("here", res)
-        return res
+        return ("Bot: " + res)
         

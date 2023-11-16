@@ -54,10 +54,7 @@ body {
 
 .guest {
   display: block;
-  /* align-items: center; */
   margin: auto;
   margin-top: 5px;
+  cursor: pointer;
 }
-
-
-
