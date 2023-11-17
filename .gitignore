@@ -131,3 +131,5 @@ dist
 
 index.faiss
 corpus.json
+
+**/__pycache__
