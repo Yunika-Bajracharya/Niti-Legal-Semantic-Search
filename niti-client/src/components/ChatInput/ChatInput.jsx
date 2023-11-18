@@ -5,7 +5,7 @@ import "./ChatInput.css";
 
 const ChatInput = (props) => {
   const [chatInput, setChatInput] = useState("");
-  const { messages, setMessages, token, setSocketState } = useContext(
+  const { messages, setMessages, token, socketState,setSocketState } = useContext(
     SessionContext
   );
 
@@ -61,6 +61,8 @@ const ChatInput = (props) => {
     }
   };
 
+    // console.log(socketState)
+
   return (
     <div className="chat-inputbox">
       <form onSubmit={updateMessages} className="form-inputbox">
@@ -71,6 +73,7 @@ const ChatInput = (props) => {
           className="input-textarea"
           type="text"
           placeholder="Type your queries here"
+          disabled={socketState == "active"?false:true}
           required="required"
         ></input>
         <input type="submit" value="&#xf1d8;" />
