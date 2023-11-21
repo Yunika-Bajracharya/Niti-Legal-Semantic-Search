@@ -1,43 +1,57 @@
 .chat-inputbox {
-    padding: 26px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    right: 0;
-  }
+  padding: 1vw;
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin-bottom: 0;
+}
   
-  .form-inputbox {
-    display: flex;
-    width: 60%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-  
+.form-inputbox {
+  display: flex;
+  width: 60%;
+  margin-left: auto;
+  margin-right: auto;
+  justify-content: center;
+  position: relative;
+}
+
+.input-textarea {
+  flex: 95%;
+  border-radius: 1vh;
+  border: none;
+  padding: 1.2vw;
+  padding-right: 1vw;
+  margin: 1vw;
+  outline: none;
+  font-size: 2.5vh;
+  box-shadow: 0 0 0.3vw 0 rgba(0, 0, 0, 0.25);
+  font-size: 2.2vh;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+input[type="submit"] {
+  flex: 5%;
+  font-family: FontAwesome;
+  border: none;
+  margin-left: -7.5vw;
+  background: none;
+  font-size: larger;
+  color: #317b7d;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  color: rgb(75, 129, 118);
+  font-size: x-large;
+}
+
+@media (max-width: 768px) {
   .input-textarea {
-    flex: 95%;
-    border-radius: 8px;
-    border: none;
-    padding: 20px;
-    padding-right: 55px;
-    margin: 12px;
-    outline: none;
-    font-size: 1.2em;
-    box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.25);
+    width: 100%; /* Make the input take full width on smaller screens */
   }
-  
-  input[type="submit"] {
-    flex: 5%;
-    font-family: FontAwesome;
-    border: none;
-    margin-left: -85px;
-    background: none;
-    font-size: larger;
-    color: #317b7d;
-  
-    cursor: pointer;
-  }
-  
-  input[type="submit"]:hover {
-    color: rgb(75, 129, 118);
-    font-size: x-large;
-  }
+}

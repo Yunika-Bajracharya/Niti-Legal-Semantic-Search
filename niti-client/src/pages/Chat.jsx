@@ -1,13 +1,15 @@
-import React,{useState,useContext,useEffect} from 'react'
+// Problem with sidebar
+
+import React, {useState,useContext,useEffect, useCallback} from 'react'
 import SessionContext from '../context/session'
 import { connection } from '../middleware/connection'
-import loader from "../assets/loader.svg"
 import { useParams } from 'react-router-dom'
 import ChatInput from '../components/ChatInput/ChatInput'
 import ChatBox from '../components/ChatBox/ChatBox'
 import "./Chat.css"
 import "normalize.css"
-
+import { Link } from 'react-router-dom';
+import { FaBars} from 'react-icons/fa';
 
 const Chat = () => {
     const {
@@ -27,10 +29,9 @@ const Chat = () => {
       timestamp: "",
     });
     const { token_id } = useParams();
+    const [sidebarVisible, setSidebarVisible] = useState(window.innerWidth > 450);
   
-
-  
-  
+    
     useEffect(() => {
       const REFRESH_SESSION = async () => {
         setLoading(true);
@@ -54,19 +55,31 @@ const Chat = () => {
       REFRESH_SESSION();
     }, [token_id]);
 
+    const toggleSidebar = () => {
+      setSidebarVisible((prevSidebarVisible) => !prevSidebarVisible);
+    };
+
 
   return (
-    <div className="Chat">
-      <aside className="sidebar">
+    <div className="Chat"> 
+      <button className="toggle-btn" onClick={toggleSidebar}>
+        <FaBars />
+      </button>
+      <aside className={`sidebar ${sidebarVisible ? '' : 'hidden'}`}>
+        
         <h1 className="logo">Niti</h1>
         <div>
           Welcome, {name}
         </div>
+        <Link to="/about" className="about-us">
+          <div className="about-us-button">
+            <p>About us</p>
+          </div>
+        </Link>
       </aside>
 
       <section className="chatbox">
         <ChatBox/>
-
         <ChatInput chat={chat} setChat={setChat}/>
       </section>
     </div>
