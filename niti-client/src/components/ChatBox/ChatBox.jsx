@@ -6,7 +6,6 @@ import React, {
   useState,
 } from "react";
 import SessionContext from "../../context/session";
-import moment from "moment";
 import "./ChatBox.css";
 import Lottie from "lottie-react";
 import animationData from "../../assets/TypingIndicator.json";
@@ -80,7 +79,11 @@ const ChatBox = () => {
                       />
                     </div>
                   ) : (
-                    <div>{message.msg.slice(4)}</div>
+                    <p
+                      dangerouslySetInnerHTML={{
+                        __html: message.msg.slice(4),
+                      }}
+                    ></p>
                   )}
                 </Fragment>
               )}

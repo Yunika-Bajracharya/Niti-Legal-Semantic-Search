@@ -59,17 +59,13 @@ class Model:
         
         for i in I[0]:
 
-            title = corpus['title'][i].split("~")[0] + "\n" + corpus['title'][i].split("~")[1]
-            
+            title = corpus['title'][i].split("~")[0] + "\n" 
+            document = corpus['title'][i].split("~")[1]
             passage = corpus['text'][i].replace("'", "`").replace('"', '`').replace("_x0002_", "-")
-
-            # print('Index: ', i)
-            # print('Article title: ', title, '\n')
-            # print('Passage: ')
-            # print(wrapper.fill(passage))
-            # print('')
-            
-            res += title + "\n\n" 
+            document_url = "https://www.moljpa.gov.np/en/wp-content/uploads/2018/12/Civil-code.pdf"
+            blank = "_blank"
+            res += title 
+            res += f'<a href={document_url} target={blank}>{document}</a>' + "\n\n" 
             res += passage + "\n"
             res += '• Inner Product: ' + str(D[0][j]) + '\n' + "_" * 70 + '\n\n' 
 
