@@ -1,13 +1,11 @@
 import React,{useState,useContext,useEffect} from 'react'
 import SessionContext from '../context/session'
 import { connection } from '../middleware/connection'
-import loader from "../assets/loader.svg"
 import { useParams } from 'react-router-dom'
 import ChatInput from '../components/ChatInput/ChatInput'
 import ChatBox from '../components/ChatBox/ChatBox'
 import "./Chat.css"
 import "normalize.css"
-
 
 const Chat = () => {
     const {
@@ -27,10 +25,8 @@ const Chat = () => {
       timestamp: "",
     });
     const { token_id } = useParams();
-  
 
-  
-  
+
     useEffect(() => {
       const REFRESH_SESSION = async () => {
         setLoading(true);
@@ -55,23 +51,16 @@ const Chat = () => {
     }, [token_id]);
 
 
-  return (
-    <div className="Chat">
-      <aside className="sidebar">
-        <h1 className="logo">Niti</h1>
-        <div>
-          Welcome, {name}
-        </div>
-      </aside>
-
-      <section className="chatbox">
-        <ChatBox/>
-
-        <ChatInput chat={chat} setChat={setChat}/>
-      </section>
-    </div>
-  );
-};
+    return (
+      <div className= "Chat">
+        <SideBar sidebar_status ={true}/>
+        <section className="chatbox">
+          <ChatBox/>
+          <ChatInput chat={chat} setChat={setChat}/>
+        </section>
+      </div>
+    );
+  };
 
 
 export default Chat

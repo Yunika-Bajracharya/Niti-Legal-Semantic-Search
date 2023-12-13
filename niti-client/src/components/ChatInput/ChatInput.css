@@ -1,43 +1,101 @@
 .chat-inputbox {
-  padding: 26px;
-  position: absolute;
+  padding: 1vw;
+  position: fixed;
   bottom: 0;
   left: 0;
   right: 0;
+  margin-bottom: 0;
 }
-
+  
 .form-inputbox {
   display: flex;
   width: 60%;
   margin-left: auto;
   margin-right: auto;
+  justify-content: center;
+  position: relative;
+}
+
+.input-container {
+  display: flex;
+  position: relative;
 }
 
 .input-textarea {
-  flex: 95%;
-  border-radius: 8px;
+  border-radius: 1vh;
   border: none;
-  padding: 20px;
-  padding-right: 55px;
-  margin: 12px;
+  padding: 1.2vw;
+  padding-right: 2vw;
+  margin: 1vw;
+  margin-left: 20vh;
   outline: none;
-  font-size: 1.2em;
-  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 0.3vw 0 rgba(0, 0, 0, 0.25);
+  font-size: 2.5vh;
+  width: 50vw;
 }
 
 input[type="submit"] {
   flex: 5%;
   font-family: FontAwesome;
   border: none;
-  margin-left: -85px;
+  
+  margin-left: -5vw;
   background: none;
-  font-size: larger;
+  font-size: 2.5vh;
   color: #317b7d;
-
   cursor: pointer;
 }
 
 input[type="submit"]:hover {
   color: rgb(75, 129, 118);
-  font-size: x-large;
+}
+
+@media only screen and (max-width: 1200px) and (min-width:500px) {
+  .form-inputbox {
+    width: 90%;
+  }
+
+  .input-textarea {
+    margin-left: 20vw;
+    height: 3vh;
+    width: 55vw;
+    font-size: 2.95vw;;
+  }
+
+  input[type="submit"] {
+    font-size: 2.7vw;
+    margin-left: -6vw;
+  }
+}
+
+@media only screen and (max-width: 500px) and (min-width:300px) {
+  .form-inputbox {
+    width: 50%;
+  }
+  .input-textarea {
+    margin-left: 15vw;
+    height: 3.5vh;
+    width: 65vw;
+    font-size: 15px;
+  }
+  input[type="submit"] {
+    font-size: 16px;
+    margin-left: -9vw;
+  }
+}
+
+@media only screen and (max-width: 300px)  {
+  .form-inputbox {
+    width: 50%;
+  }
+  .input-textarea {
+    margin-left: 24vw;
+    height: 3.5vh;
+    width: 65vw;
+    font-size: 13px;
+  }
+  input[type="submit"] {
+    font-size: 15px;
+    margin-left: -9.5vw;
+  }
 }

@@ -39,8 +39,21 @@ const ChatBox = () => {
     }
   }, [messages]);
 
+  const handleQuestionClick = (question) => {
+    addMessage({ id: Date.now(), msg: `Human: ${question}` });
+  };
+
+  const questions = [
+    "I got a ticket for breaking a traffic rule, but I didn't know about that rule. Can I say I didn't know and avoid the ticket?",
+    "I married someone but I did not know they had Hepatitis-B. What can I do now?",
+    
+    "My neighbor throws solid waste and goods on the street. Isn’t there any law related to that so he could be punished?",
+    "My older brother is using our ancestral property all by himself, and when I ask for my share, he shuts me saying he is the older one, so he gets the property. How do I ask for my rights to the property?",
+  ];
+
   return (
     <div className="chat-log" ref={messageElement}>
+      <div className="chat-log" ref={messageElement}></div>
       {messages.map((message, index) => {
         const isHuman = message.msg.startsWith("Human:");
 
@@ -91,6 +104,7 @@ const ChatBox = () => {
           </div>
         );
       })}
+      
     </div>
   );
 };

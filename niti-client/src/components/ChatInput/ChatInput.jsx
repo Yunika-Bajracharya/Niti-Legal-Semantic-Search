@@ -76,7 +76,7 @@ const ChatInput = (props) => {
           disabled={socketState == "active"?false:true}
           required="required"
         ></input>
-        <input type="submit" value="&#xf1d8;" />
+        <input type="submit" className= "submit-button" value="&#xf1d8;" />
       </form>
     </div>
   );

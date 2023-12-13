@@ -1,92 +1,6 @@
-.Chat {
-  text-align: center;
-  display: flex;
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  right: 0;
-  left: 0;
-}
-
-.logo {
-  color: white;
-}
-
-.sidebar {
-  width: 260px;
-  padding: 10px;
-  background-color: #317b7d;
-  color: white;
-}
-
-.chatbox {
-  flex: 1;
-  background-color: #eaecef;
-  position: relative;
-}
-
-.sidebar-button {
-  padding: 10px;
-  border: 1px solid white;
-  border-radius: 5px;
-  text-align: left;
-  transition: ease 0.25s all;
-}
-
-.sidebar-button:hover {
-  background-color: #438285;
-}
-
-.sidebar-button span {
-  padding: 0 12px 0 6px;
-}
-
-.chat-inputbox {
-  padding: 26px;
-  position: absolute;
-  bottom: 0;
-  left: 0;
-  right: 0;
-}
-
-.form-inputbox {
-  display: flex;
-  width: 60%;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.input-textarea {
-  flex: 95%;
-  border-radius: 8px;
-  border: none;
-  padding: 20px;
-  padding-right: 55px;
-  margin: 12px;
-  outline: none;
-  font-size: 1.2em;
-  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 0.25);
-}
-
-input[type="submit"] {
-  flex: 5%;
-  font-family: FontAwesome;
-  border: none;
-  margin-left: -85px;
-  background: none;
-  font-size: larger;
-  color: #317b7d;
-  cursor: pointer;
-}
-
-input[type="submit"]:hover {
-  color: rgb(75, 129, 118);
-  font-size: x-large;
-}
-
 .chat-log {
   height: 85%;
-  padding: 20px;
+  padding: 1.5vw;
   padding-right: 10%;
   padding-left: 10%;
   text-align: left;
@@ -97,18 +11,56 @@ input[type="submit"]:hover {
   scroll-snap-type: y proximity;
 }
 
-.chat-query {
-  margin-bottom: 15px;
-  background-color: white;
-  border-radius: 8px;
-  box-shadow: 4px 4px 0px 0px rgba(218, 213, 213, 0.25);
+.chatbox {
+  flex: 1;
+  background-color: #eaecef;
+  width: 100%;
+  max-width: none;
+}
 
+.chat-title {
+  margin-top: 5vh;
+  font-size: 3vw;
+  font-weight: bold;
+  font-family:cursive;
+  color: #205072;
+  text-align: center;
+  margin-bottom: 2vh;
+  
+}
+
+.chat-query {
+  margin-bottom: 0.1vh;
+  background-color: white;
+  border-radius: 0.85vw;
+  box-shadow: 0.4vw 0.5vh 0vw 0vh rgba(218, 213, 213, 0.25);
   display: flex;
-  padding: 12px;
-  padding-left: 20px;
-  padding-right: 20px;
+  padding: 0.5vw;
+  padding-left: 1.5vw;
+  padding-right: 1.5vw;
   max-width: 640px;
   margin-left: auto;
+  margin-top: 2vh;
+  margin-bottom: 0.5vh;
+  margin-right: 0.1vw;
+  font-size: 1.5vw;
+}
+
+.chat-answer {
+  margin-bottom: 12vh;
+  margin-top: 1vh;
+  border-radius: 0.85vw;
+  box-shadow: 0.4vw 0.75vh 0vw 0vh rgba(218, 213, 213, 0.25);
+  background-color: #cbe5e6;
+  display: flex;
+  padding: 0.5vw;
+  padding-left: 1.5vw;
+  padding-right: 1.5vw;
+  width: 65%;
+  max-width: 75vw;
+  margin-right: auto;
+  margin-left: 13vw;
+  font-size: 1.2vw;
 }
 
 .avatar {
@@ -117,39 +69,120 @@ input[type="submit"]:hover {
   margin-bottom: auto;
   border-radius: 50%;
   background: #ffffff;
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 43px;
   text-align: center;
-}
-
-.message {
-  padding: 10px;
-  padding-left: 20px;
-  line-height: 25px;
-}
-
-.chat-answer {
-  margin-bottom: 15px;
-  border-radius: 8px;
-  box-shadow: 4px 4px 0px 0px rgba(218, 213, 213, 0.25);
-  background-color: #cbe5e6;
-
-  display: flex;
-  padding: 12px;
-  padding-left: 20px;
-  padding-right: 20px;
-  max-width: 640px;
-  margin-right: auto;
-}
-
-.source {
-  padding: 10px;
-  border: 1px solid #317b7d;
-  border: none;
-  border-radius: 20px;
+  align-self: center;
 }
 
 #p_wrap {
   white-space: pre-line;
 }
 
+.message {
+  padding: 0.5vh;
+  padding-left: 2.5vw;
+  line-height: 3.1vh;
+}
+
+.question-boxes {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1vw;
+  margin-top: 30vh;
+  margin-bottom: 0.25vh;
+}
+
+.question-box {
+  cursor: pointer;
+  width: 25vw;
+  height: 15vh;
+  padding: 1vw;
+  margin: 0.5vh;
+  border: 0.2vw solid #205072;
+  border-radius: 1vw;
+  background-color: #eaecef;
+  transition: background-color 0.3s;
+  box-sizing: border-box;
+}
+
+.question-box:hover {
+  background-color: whitesmoke;
+}
+
+@media screen and (max-width: 1500px) and (min-width: 1000px){
+  .chat-answer{
+    font-size: 1.7vw;
+  }
+  .chat-query{
+    font-size: 1.8vw;
+  }
+ 
+}
+
+@media screen and (max-width: 1000px) and (min-width: 768px){
+  .chat-answer{
+    font-size: 20px;
+    width: 55vw;
+    margin-bottom: 10vh;
+    margin-left: 18vw;
+  }
+  .chat-query{
+    font-size: 25px;
+  }
+  .avatar{
+    width:5vw;
+    height: 3.5vh;
+  }
+}
+
+@media screen and (max-width: 768px) and (min-width:500px) {
+  .chat-answer{
+    font-size: 3vw;
+    width: 60vw;
+    margin-bottom: 8vh;
+    margin-left: 7.5vw;
+  }
+  .chat-query{
+    font-size: 3vw;
+  }
+  .avatar{
+    width:45px;
+    height: 45px;
+  }
+}
+
+@media screen and (max-width: 500px) and (min-width:300px) {
+  .chat-answer{
+    font-size: 15px;
+    width: 60vw;
+    margin-bottom: 8vh;
+    margin-left: 10vw;
+  }
+  .chat-query{
+    font-size: 15px;
+    text-align: center;
+  }
+  .avatar{
+    width:45px;
+    height: 45px;
+  }
+}
+
+@media screen and (max-width: 350px)  {
+  .chat-answer{
+    font-size: 13px;
+    width: 60vw;
+    margin-bottom: 8vh;
+    margin-left: 18vw;
+  }
+  .chat-query{
+    font-size: 15px;
+    text-align: center;
+  }
+  .avatar{
+    width:45px;
+    height: 45px;
+  }
+}

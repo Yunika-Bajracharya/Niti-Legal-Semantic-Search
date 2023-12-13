@@ -8,7 +8,14 @@
   left: 0;
 }
 
-.logo {
+.chatbox {
+  flex: 1;
+  background-color: #eaecef;
+  width: 100%;
+  max-width: none;
+}
+
+/* .logo {
   color: white;
 }
 
@@ -19,11 +26,7 @@
   color: white;
 }
 
-.chatbox {
-  flex: 1;
-  background-color: #eaecef;
-  position: relative;
-}
+
 
 .sidebar-button {
   padding: 10px;
@@ -135,4 +138,4 @@ input[type="submit"]:hover {
   border: 1px solid #317b7d;
   border: none;
   border-radius: 20px;
-}
+} */
