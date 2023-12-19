@@ -5,14 +5,13 @@ import { NavLink } from "react-router-dom";
 import SessionContext from "../../context/session";
 import { FaSignOutAlt, FaUsers, FaBars, FaPenSquare } from "react-icons/fa";
 
-const SideBar = ({ children, refreshToken, sidebar_status }) => {
+const SideBar = ({ children, sidebar_status }) => {
   const [isOpen, setIsOpen] = useState(sidebar_status);
   const toggle = () => setIsOpen(!isOpen);
   const navigate = useNavigate();
-  const { token } = useContext(SessionContext);
-
+  const { token }  = useContext(SessionContext);
   // const sidebarWidth = isClosed ? 75 : isOpen ? 210 : 75;
-
+  console.log(isOpen)
 
   useEffect(() => {
     const handleResize = () => {
@@ -42,7 +41,7 @@ const SideBar = ({ children, refreshToken, sidebar_status }) => {
       onClick: handleNewChatClick,
     },
     {
-      path: "/about",
+      path: `/about/${token}`,
       name: "About Us",
       icon: <FaUsers />,
     },
@@ -55,7 +54,8 @@ const SideBar = ({ children, refreshToken, sidebar_status }) => {
 
   return (
     <div className="sidebar-container">
-      <div style={{ width: isOpen ? "210px" : "70px" }} className="sidebar">
+      <main style={{ marginLeft: isOpen ? "210px" : "50px" }}>{children}</main>
+      <div style={{ width: isOpen ? "210px" : "75px" }} className="sidebar">
         <div className="top_section">
           <h1 style={{ display: isOpen ? "block" : "none" }} className="sidebar-logo">
             Niti
@@ -74,7 +74,7 @@ const SideBar = ({ children, refreshToken, sidebar_status }) => {
           </NavLink>
         ))}
       </div>
-      <main>{children}</main>
+      
     </div>
   );
 };

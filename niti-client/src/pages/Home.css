@@ -1,7 +1,7 @@
-
-body {
+body{
   background-image: linear-gradient(to right, #329d9c, #56c596);
 }
+
 
 .home_logo {
   display: block;
@@ -9,7 +9,6 @@ body {
   max-width: 280px;
   height: auto;
   margin: auto;
-  margin-top: 20vh;
 }
 
 .home_form {

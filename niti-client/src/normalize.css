@@ -1,4 +1,6 @@
-/*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
+/*! 
+
+v8.0.1 | MIT License | github.com/necolas/normalize.css */
 
 /* Document
    ========================================================================== */
@@ -11,7 +13,11 @@
 html {
   line-height: 1.15; /* 1 */
   -webkit-text-size-adjust: 100%; /* 2 */
+  margin: 0;
+  padding: 0;
 }
+
+
 
 /* Sections
    ========================================================================== */
@@ -20,9 +26,11 @@ html {
  * Remove the margin in all browsers.
  */
 
-body {
+body{
   margin: 0;
+  padding: 0;
 }
+
 
 html {
   -webkit-box-sizing: border-box;

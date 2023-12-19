@@ -14,7 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/chat/:token_id" element={<Chat />} />
-          <Route path="/about" element={<About />} />
+          <Route path="/about/:token_id" element={<About />} />
         </Routes>
       </div>
     </BrowserRouter>

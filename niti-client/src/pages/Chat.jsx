@@ -4,6 +4,8 @@ import { connection } from '../middleware/connection'
 import { useParams } from 'react-router-dom'
 import ChatInput from '../components/ChatInput/ChatInput'
 import ChatBox from '../components/ChatBox/ChatBox'
+import SideBar from "../components/SideBar/SideBar"
+
 import "./Chat.css"
 import "normalize.css"
 
@@ -53,11 +55,12 @@ const Chat = () => {
 
     return (
       <div className= "Chat">
-        <SideBar sidebar_status ={true}/>
+        <SideBar sidebar_status ={true}>
         <section className="chatbox">
           <ChatBox/>
           <ChatInput chat={chat} setChat={setChat}/>
         </section>
+        </SideBar>
       </div>
     );
   };

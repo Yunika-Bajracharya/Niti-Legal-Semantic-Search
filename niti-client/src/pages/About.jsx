@@ -1,9 +1,10 @@
-import React, {useState, useRef} from 'react';
+import React, {useState, useRef,useContext} from 'react';
 import logo from "../assets/large-logo.png";
 import "./About.css"
 import { Link } from 'react-router-dom';
 import { useParams } from 'react-router-dom'
 import SideBar from '../components/SideBar/SideBar';
+import SessionContext from "../context/session";
 
 import Yunika from "../assets/members/Yunika.png"
 import Pranab from "../assets/members/Pranab.jpg"
@@ -13,13 +14,15 @@ import Sawarni from "../assets/members/Sawarni.png"
 import Shambhavi from "../assets/members/Shambhavi.png"
 import Prerana from "../assets/members/Prerana.png"
 
-const About = ({}) => {
+const About = () => {
+  
 
   return (
-    <div className='about-page' >
-      <SideBar sidebar_status ={false}>
+    <SideBar sidebar_status ={false} >
+      <div className='about-page' >
       <section className="heading">
         <h1 >About Us</h1>
+        <img src={logo} alt="logo"></img>
       </section>
       <div className="container">
         
@@ -54,16 +57,16 @@ const About = ({}) => {
               about how words relate to each other, making searches smarter and more precise.
             </p>
             <p>We have included the following legal documents:
-              <ul>
+              <ul >
                 <li ><a href='https://lawcommission.gov.np/en/wp-content/uploads/2021/01/Constitution-of-Nepal.pdf'>Constitution of Nepal</a></li>
                 <li><a href='https://www.moljpa.gov.np/en/wp-content/uploads/2018/12/Civil-code.pdf'>The National Civil (Code) Act, 2017 (2074)</a></li>
                 <li><a href='https://www.moljpa.gov.np/en/wp-content/uploads/2018/12/Civil-procedure-code.pdf'>The National Civil Procedure (Code) Act, 2017</a></li>
               </ul>
             </p>
           </div>
-          <div className ="about-image">
+          {/* <div className ="about-image">
             <img src={logo} alt="logo"></img>
-          </div>
+          </div>  */}
         </section>
       </div>
 
@@ -74,7 +77,7 @@ const About = ({}) => {
           <h3>Yunika Bajracharya</h3>
           <p>Developer</p>
           <div className="icon-container">
-            {/* <FontAwesomeIcon icon="fa-brands fa-linkedin" style={{color: "#205072",}} /> */}
+             {/* <FontAwesomeIcon icon="fa-brands fa-linkedin" style={{color: "#205072",}} />  */}
             <a href="https://www.linkedin.com/in/yunikabajracharya/" className="icon-link">
               <i className="fab fa-linkedin" aria-hidden="true"></i>
             </a>
@@ -86,7 +89,7 @@ const About = ({}) => {
 
         <div className="team-box">
           <img src={Pranab} alt="Pranab" class="team-member-image" />
-          <h3>Pranab Gubhaju</h3>
+          <h3>Pranab Ratna Gubhaju</h3>
           <p>Developer</p>
           <div className="icon-container">
             <a href="https://www.linkedin.com/in/pranab-ratna-gubhaju/" className="icon-link">
@@ -176,9 +179,9 @@ const About = ({}) => {
           &copy; 2023 Niti - Team LawYaar
         </div>
       </footer>
+    </div>
       </SideBar>
      
-    </div>
 
   );
 };

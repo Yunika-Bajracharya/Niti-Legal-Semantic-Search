@@ -1,11 +1,13 @@
 .about-page{
-  background-color: #205072;
-  /* background-color: #329d9c; */
-  /* background-color: #eaecef; */
-  display: flex;
-  flex-direction: column;
+  /* background-color: #205072; */
+  background-color: #CFF4D2;
   width: 100%;
   min-height: 100vh;
+  /* display: flex;
+  flex-direction: column;
+  flex-wrap: wrap; */
+  justify-content: center;
+  overflow-x: hidden;
 }
 
 .heading{ 
@@ -25,7 +27,7 @@
   position: relative;
 }
 
-.heading h1::after {
+/* .heading h1::after {
   content:"";
   position: absolute;
   width: 100%;
@@ -34,14 +36,14 @@
   margin: 0 auto;
   background-color: #CFF4D2;
   
-}
+} */
 
 .container {
   width: 90%;
   margin: 0 auto;
   justify-content: space-between;
   padding: 0;
-  flex: 1;
+  flex-wrap:wrap ;
 }
 
 .about{
@@ -80,15 +82,15 @@
   font-size: 4.5vh;
   margin-bottom: 0vh;
   margin-top: 4vh;
-  color:#CFF4D2;
+  color:black;
 }
 
 .about-content p{
   font-size: 2.4vh;
-  margin-top: 1vh;
-  margin-bottom: 1vh;
+  /* margin-top: 1vh;
+  margin-bottom: 1vh; */
   line-height:1.5;
-  color: white; 
+  color: black; 
 }
 
 .section {
@@ -100,8 +102,8 @@
   font-size: 5vh;
   color: #000;
   text-align: center;
-  margin-bottom: 1vh;
-  margin-top: 1vh;
+  /* margin-bottom: 1vh;
+  margin-top: 1vh; */
 }
 
 .team-box {
@@ -111,10 +113,10 @@
   margin: 0.75vw;
   margin-top: 0vh;
   margin-bottom: 2.5vh;
-  color: #b7c0c7;
+  color: black;
   padding: 1vw 0vh;
   border-radius: 2vh;
-  border: 0.2vw solid #CFF4D2;
+  border: 0.2vw solid black;
   text-align: center;
   perspective: 1000px;
   cursor: pointer;
@@ -130,9 +132,8 @@
 
 .team-box h3{
   font-size: 1.45vw;
-  margin-bottom: 0;
   /* color: #205072; */
-  color: #56c596;
+  color: black;
   margin-top: 0.25vh;
   padding: 0.5vw 1vh ;
 }
@@ -146,22 +147,23 @@
 }
 
 .team-box p{
-  font-size: 1.8vw;
-  /* color: #205072; */
-  color: #56c596;
+  font-size: 1.2vw;
+  color: #205072;
   margin-bottom: 2.5vh;
   margin-top: 0;
 }
 
 .team-container {
+  position: relative;
   display: flex;
   flex-wrap: wrap;
   padding: 0;
-  margin-left: 15vw;
-  margin-right: 15vw;
+  margin-left: 5vw;
+  margin-right: 5vw;
   margin-bottom: 0vh;
   justify-content: space-around;
 }
+
 
 .icon-container {
   position: absolute;
@@ -178,7 +180,7 @@
   display: flex;
   height:auto;
   align-items: center; 
-  color: #CFF4D2;
+  color: black;
 }
 
 .icon-link:hover img {
@@ -193,7 +195,7 @@
   position: relative;
   bottom: 0;
   margin-top: 0;
-  margin-left: 75px;
+  /* margin-left: 75px; */
   width: 100%;
 }
 
@@ -214,7 +216,7 @@ li {
   margin-bottom: 0.1vh; 
 }
 li a{
-  color:white;
+  color:black;
 }
 
 li a:hover{

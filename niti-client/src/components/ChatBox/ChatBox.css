@@ -6,9 +6,10 @@
   text-align: left;
   display: flex;
   flex-direction: column;
-  overflow-y: scroll;
+  box-sizing: border-box;
+  /* overflow-y: scroll;
   overscroll-behavior-y: contain;
-  scroll-snap-type: y proximity;
+  scroll-snap-type: y proximity; */
 }
 
 .chatbox {
@@ -85,7 +86,7 @@
   line-height: 3.1vh;
 }
 
-.question-boxes {
+/* .question-boxes {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -109,7 +110,7 @@
 
 .question-box:hover {
   background-color: whitesmoke;
-}
+} */
 
 @media screen and (max-width: 1500px) and (min-width: 1000px){
   .chat-answer{
