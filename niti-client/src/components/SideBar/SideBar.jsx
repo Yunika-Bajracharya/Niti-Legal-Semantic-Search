@@ -41,7 +41,7 @@ const SideBar = ({ children, sidebar_status }) => {
       onClick: handleNewChatClick,
     },
     {
-      path: `/about/${token}`,
+      path: `/about`,
       name: "About Us",
       icon: <FaUsers />,
     },
@@ -54,7 +54,7 @@ const SideBar = ({ children, sidebar_status }) => {
 
   return (
     <div className="sidebar-container">
-      <main style={{ marginLeft: isOpen ? "210px" : "50px" }}>{children}</main>
+      <main style={{ marginLeft: isOpen ? "210px" : "50px"}} className="sidebar-content">{children}</main>
       <div style={{ width: isOpen ? "210px" : "75px" }} className="sidebar">
         <div className="top_section">
           <h1 style={{ display: isOpen ? "block" : "none" }} className="sidebar-logo">

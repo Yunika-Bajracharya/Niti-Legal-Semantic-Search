@@ -12,7 +12,7 @@ import Asmita from "../assets/members/Asmita.png"
 import Sudip from "../assets/members/Sudip.jpg"
 import Sawarni from "../assets/members/Sawarni.png"
 import Shambhavi from "../assets/members/Shambhavi.png"
-import Prerana from "../assets/members/Prerana.png"
+
 
 const About = () => {
   
@@ -70,14 +70,14 @@ const About = () => {
         </section>
       </div>
 
-      <h2 className='team'>The Team</h2>
+      {/* <h2 className='team'>The Team</h2>
       <div className="section team-container">
         <div className="team-box">
           <img src={Yunika} alt="Yunika" className="team-member-image" />
           <h3>Yunika Bajracharya</h3>
           <p>Developer</p>
           <div className="icon-container">
-             {/* <FontAwesomeIcon icon="fa-brands fa-linkedin" style={{color: "#205072",}} />  */}
+             
             <a href="https://www.linkedin.com/in/yunikabajracharya/" className="icon-link">
               <i className="fab fa-linkedin" aria-hidden="true"></i>
             </a>
@@ -158,21 +158,9 @@ const About = () => {
           </div>
         </div>
         
-        <div className="team-box">
-          <img src={Prerana} alt="Prerana" class="team-member-image" />
-          <h3>Prerana Sapkota</h3>
-          <p>Team Member</p>
-          <div className="icon-container">
-            <a href="https://www.linkedin.com/in/prerana-sapkota-03b786205/" className="icon-link">
-              <i className="fab fa-linkedin" aria-hidden="true"></i>
-            </a>
-            <a href= "mailto:sapkotaprerana@gmail.com" className="icon-link">
-              <i className ="fa-solid fa-envelope" aria-hidden="true"></i>
-            </a>
-          </div>
-        </div>
+        
              
-      </div>
+      </div> */}
 
       <footer className="footer">
         <div className="copyright">

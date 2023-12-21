@@ -16,12 +16,12 @@ const ChatBox = () => {
 
   const [showTypingAnimation, setShowTypingAnimation] = useState(false);
 
-  useEffect(() => {
-    // Scroll to the bottom of the chat log when new messages arrive
-    if (messageElement.current) {
-      messageElement.current.scrollTop = messageElement.current.scrollHeight;
-    }
-  }, [messages]);
+  // useEffect(() => {
+  //   // Scroll to the bottom of the chat log when new messages arrive
+  //   if (messageElement.current) {
+  //     messageElement.current.scrollTop = messageElement.current.scrollHeight;
+  //   }
+  // }, [messages]);
 
   useEffect(() => {
     //To start animation immediately
