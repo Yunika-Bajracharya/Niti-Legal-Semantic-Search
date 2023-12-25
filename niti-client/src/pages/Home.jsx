@@ -14,7 +14,7 @@ const Home = () => {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
-  console.log(name);
+  // console.log(name);
 
   const setGuestName = () => {
     setName("Guest");

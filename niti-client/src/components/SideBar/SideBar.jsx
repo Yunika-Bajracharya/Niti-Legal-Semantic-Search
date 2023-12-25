@@ -11,7 +11,7 @@ const SideBar = ({ children, sidebar_status }) => {
   const navigate = useNavigate();
   const { token }  = useContext(SessionContext);
   // const sidebarWidth = isClosed ? 75 : isOpen ? 210 : 75;
-  console.log(isOpen)
+  // console.log(isOpen)
 
   useEffect(() => {
     const handleResize = () => {

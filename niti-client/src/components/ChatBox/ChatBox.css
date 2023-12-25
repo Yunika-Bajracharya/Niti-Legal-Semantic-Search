@@ -8,10 +8,11 @@
   display: flex;
   flex-direction: column;
   box-sizing: border-box;
-  /* margin-bottom: 20vh; */
-  /* overflow-y: scroll;
+  overflow-y: auto;
+  /* overflow-y: scroll; */
   overscroll-behavior-y: contain;
-  scroll-snap-type: y proximity; */
+  scroll-snap-type: y proximity;
+  max-height: 90vh;
 }
 
 .chatbox {
