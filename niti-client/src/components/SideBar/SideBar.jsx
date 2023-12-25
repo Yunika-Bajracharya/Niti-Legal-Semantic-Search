@@ -35,7 +35,7 @@ const SideBar = ({ children, sidebar_status }) => {
 
   const menuItem = [
     {
-      path: `/chat/${token}`, // Add the path for New Chat
+      path: token ? `/chat/${token}` : "/",
       name: "Chat",
       icon: <FaPenSquare />,
       onClick: handleNewChatClick,
