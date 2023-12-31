@@ -11,17 +11,20 @@ const Home = () => {
   const { setToken, name, setName, setSessionStart } = useContext(
     SessionContext
   );
+  const [formName,setFormname] = useState("")
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const navigate = useNavigate();
   // console.log(name);
 
   const setGuestName = () => {
-    setName("Guest");
+    setFormname("Guest");
+    setName(formName)
+    setFormname("")
   };
   
   const handleInput = (event) => {
-    setName(event.target.value);
+    setFormname(event.target.value);
   };
 
   const CREATE_SESSION = async () => {
@@ -57,11 +60,14 @@ const Home = () => {
 
   const onSubmit = (event) => {
     event.preventDefault();
-    if (name.length > 0) {
+    if (formName.length > 0) {
+      setName(formName)
+      setFormname("")
       CREATE_SESSION();
     } else {
       setError("Error! Provide Required Credentials");
     }
+   
   };
   const [text] = useTypewriter({
     words: ['दैवले जानुन', 'सबैले जानुन |'],
@@ -101,7 +107,7 @@ const Home = () => {
           <form onSubmit={onSubmit} className="home_form">
             <input
               placeholder="Enter your name"
-              value={name}
+              value={formName}
               type="text"
               onChange={handleInput}
               className="home_textbox"

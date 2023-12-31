@@ -61,6 +61,10 @@ body{
   background-color: #7be495;
 }
 
+.home_textbox:hover {
+  background-color: #7be495;
+}
+
 .guest {
   display: block;
   margin: auto;

@@ -7,6 +7,7 @@ from src.redis.config import Redis
 from src.schema.chat import Message
 from src.redis.producer import Producer
 from src.redis.stream import StreamConsumer
+import uuid
 
 redis = Redis()
 
@@ -37,7 +38,7 @@ async def main():
                     try:
 
 
-                        msg = Message(msg=message) 
+                        msg = Message(id=str(uuid.uuid4()), msg=message) 
 
                         await cache.add_message_to_cache(token=token, source="human", message_data=msg.dict())
                         
@@ -58,7 +59,9 @@ async def main():
                         # res = "Ooolaaa"        
 
                         msg = Message(
+                            id=str(uuid.uuid4()), 
                             msg=res
+                            
                         )
 
                         stream_data = {}

@@ -54,19 +54,19 @@ const SideBar = ({ children, sidebar_status }) => {
 
   return (
     <div className="sidebar-container">
-      <main style={{ marginLeft: isOpen ? "210px" : "50px"}} className="sidebar-content">{children}</main>
-      <div style={{ width: isOpen ? "210px" : "75px" }} className="sidebar">
-        <div className="top_section">
+      <main style={{ marginLeft: isOpen ? "210px" : "95px"}} className="sidebar-content">{children}</main>
+      <div style={{ width: isOpen ? "210px" : "95px" }} className="sidebar">
+        <div style={{ marginLeft: isOpen ? "0" : "30px" }} className="top_section">
           <h1 style={{ display: isOpen ? "block" : "none" }} className="sidebar-logo">
             Niti
           </h1>
-          <div style={{ marginLeft: isOpen ? "75px" : "0px" }} className="bars">
+          <div  className="bars">
             <FaBars onClick={toggle} />
           </div>
         </div>
 
         {menuItem.map((item, index) => (
-          <NavLink to={item.path} key={index} className="link" activeClassName="active" onClick={item.onClick}>
+          <NavLink to={item.path} key={index} className={`${item.name === 'Log Out' ? 'bottom-link' : 'link'}`} activeClassName="active" onClick={item.onClick}>
             <div className="icon">{item.icon}</div>
             <div style={{ display: isOpen ? "block" : "none" }} className="link-text">
               {item.name}

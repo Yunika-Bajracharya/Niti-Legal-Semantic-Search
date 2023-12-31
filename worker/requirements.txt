@@ -1,0 +1,9 @@
+rejson==0.5.6
+aioredis==2.0.1
+pydantic==1.10.9
+faiss-cpu
+requests
+transformers
+textwrapper
+python-dotenv
+torch
