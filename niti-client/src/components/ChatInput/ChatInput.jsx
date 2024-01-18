@@ -18,6 +18,7 @@ const ChatInput = (props) => {
   useEffect(() => {
     if (null !== ws) {
       ws.current = new WebSocket(`wss://niti-server.onrender.com/chat?token=${token}`);
+      // ws.current = new WebSocket(`ws://localhost:3500/chat?token=${token}`);
       ws.current.onopen = () => setSocketState("active");
       ws.current.onclose = () => setSocketState("");
 

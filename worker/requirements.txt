@@ -6,4 +6,4 @@ requests
 transformers
 textwrapper
 python-dotenv
-torch
+torch==1.13.1

@@ -9,7 +9,12 @@ from fastapi.middleware.cors import CORSMiddleware
 load_dotenv()
 
 api = FastAPI()
+
+@api.get("/")
+async def root():
+    return {"msg": "API is Online"}
 # api.include_router(app)
+
 api.include_router(chat)
 
 
@@ -17,7 +22,8 @@ api.include_router(chat)
 origins = [
     "http://localhost",   # The address of your front-end app
     "http://localhost:3000",   # If your front-end is running on port 3000
-    "https://niti-client-k22bibij0-daskhas-projects.vercel.app/"
+    "niti-client-cw7szwr5s-daskhas-projects.vercel.app",
+    # "https://niti-client-k22bibij0-daskhas-projects.vercel.app/",
 ]
 
 # Add the CORS middleware
@@ -29,8 +35,8 @@ api.add_middleware(
     allow_headers=["*"],
 )
 
-if __name__ == "__main__":
-    # if os.environ.get('APP_ENV') == "development":
-    uvicorn.run("main:api", host="0.0.0.0", port=3500,workers=4, reload=True)
-    # else:
-    #   pass
+# if __name__ == "__main__":
+#     # if os.environ.get('APP_ENV') == "development":
+#     uvicorn.run("main:api", host="0.0.0.0", port=3500,workers=4, reload=True)
+#     # else:
+#     #   pass

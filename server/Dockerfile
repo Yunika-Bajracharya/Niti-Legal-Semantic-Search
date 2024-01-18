@@ -2,7 +2,7 @@
 FROM python:3.10
 
 # Set the working directory in the container
-WORKDIR /niti_chatbot/server
+WORKDIR /server
 
 # Copy the requirements.txt file into the container
 COPY requirements.txt .
@@ -17,4 +17,5 @@ COPY . .
 EXPOSE 3500
 
 # Command to run your FastAPI application
-CMD ["python", "main.py"]
+# CMD ["python", "main.py"]
+CMD ["uvicorn", "main:api", "--host", "0.0.0.0", "--port", "3500"]
