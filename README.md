@@ -6,12 +6,6 @@ Lawyers have to spend a lot of time searching legal documents every day. Law stu
 
 One can ask legal queries, our system will search for your answers through the legal documents, extract the answer as it is, and reply back to the user, also providing the link to the document where the law resides.
 
-For the initial phase, we have included the following legal documents:
-
-1. [Constitution of Nepal](https://lawcommission.gov.np/en/wp-content/uploads/2021/01/Constitution-of-Nepal.pdf)
-2. [The National Civil (Code) Act, 2017 (2074)](https://www.moljpa.gov.np/en/wp-content/uploads/2018/12/Civil-code.pdf)
-3. [The National Civil Procedure (Code) Act, 2017](https://www.moljpa.gov.np/en/wp-content/uploads/2018/12/Civil-procedure-code.pdf)
-
 ### [Video](https://youtu.be/hqYp7NOrMAI?feature=shared)
 
 ### Feedback and Support
